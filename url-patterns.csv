@@ -1,0 +1,61 @@
+type,pattern,urlTemplate,requiredFields,note
+npm,default,https://www.npmjs.com/package/{name},name,
+npm,withVersion,https://www.npmjs.com/package/{name}/v/{version},"name,version",
+npm,withNamespace,https://www.npmjs.com/package/@{namespace}/{name},"namespace,name",@ prefix added if not present
+npm,withNamespaceAndVersion,https://www.npmjs.com/package/@{namespace}/{name}/v/{version},"namespace,name,version",@ prefix added if not present
+pypi,default,https://pypi.org/project/{name}/,name,
+pypi,withVersion,https://pypi.org/project/{name}/{version}/,"name,version",
+maven,withNamespace,https://central.sonatype.com/artifact/{namespace}/{name},"namespace,name",
+maven,withNamespaceAndVersion,https://central.sonatype.com/artifact/{namespace}/{name}/{version},"namespace,name,version",
+maven,fallback,https://central.sonatype.com/search?q={name},name,Used when namespace (groupId) is absent
+cargo,default,https://crates.io/crates/{name},name,
+cargo,withVersion,https://crates.io/crates/{name}/{version},"name,version",
+gem,default,https://rubygems.org/gems/{name},name,
+gem,withVersion,https://rubygems.org/gems/{name}/versions/{version},"name,version",
+nuget,default,https://www.nuget.org/packages/{name},name,
+nuget,withVersion,https://www.nuget.org/packages/{name}/{version},"name,version",
+golang,default,https://pkg.go.dev/{name},name,Used when namespace is absent
+golang,withVersion,https://pkg.go.dev/{name}@{version},"name,version",Used when namespace is absent
+golang,withNamespace,https://pkg.go.dev/{namespace}/{name},"namespace,name",
+golang,withNamespaceAndVersion,https://pkg.go.dev/{namespace}/{name}@{version},"namespace,name,version",
+docker,official,https://hub.docker.com/_/{name},name,Used when namespace is absent or 'library'
+docker,withNamespace,https://hub.docker.com/r/{namespace}/{name},"namespace,name",
+github,default,https://github.com/{namespace}/{name},"namespace,name",
+bitbucket,default,https://bitbucket.org/{namespace}/{name},"namespace,name",
+huggingface,withNamespace,https://huggingface.co/{namespace}/{name},"namespace,name",
+huggingface,fallback,https://huggingface.co/models?search={name},name,Used when namespace is absent
+hex,default,https://hex.pm/packages/{name},name,
+hex,withVersion,https://hex.pm/packages/{name}/{version},"name,version",
+pub,default,https://pub.dev/packages/{name},name,
+composer,withNamespace,https://packagist.org/packages/{namespace}/{name},"namespace,name",
+composer,fallback,https://packagist.org/?query={name},name,Used when namespace is absent
+cocoapods,default,https://cocoapods.org/pods/{name},name,
+hackage,default,https://hackage.haskell.org/package/{name},name,
+cran,default,https://cran.r-project.org/package={name},name,
+cpan,withNamespace,https://metacpan.org/release/{namespace}/{name},"namespace,name",
+cpan,default,https://metacpan.org/pod/{name},name,Used when namespace is absent
+opam,default,https://opam.ocaml.org/packages/{name}/,name,
+swift,default,https://swiftpackageindex.com/{namespace}/{name},"namespace,name",
+julia,default,https://juliahub.com/ui/Packages/General/{name},name,Strip .jl suffix from name if present
+luarocks,withNamespace,https://luarocks.org/modules/{namespace}/{name},"namespace,name",
+luarocks,fallback,https://luarocks.org/search?q={name},name,Used when namespace is absent
+bazel,default,https://registry.bazel.build/modules/{name},name,
+conan,default,https://conan.io/center/recipes/{name},name,
+conda,default,https://anaconda.org/{namespace}/{name},name,namespace defaults to 'anaconda' if absent
+bitnami,default,https://bitnami.com/stack/{name},name,
+vscode-extension,default,https://marketplace.visualstudio.com/items?itemName={namespace}.{name},"namespace,name",
+alpm,withQualifier,{qualifiers.repository_url},qualifiers.repository_url,
+alpm,fallback,https://archlinux.org/packages/?q={name},name,
+apk,withQualifier,{qualifiers.repository_url},qualifiers.repository_url,
+apk,fallback,https://pkgs.alpinelinux.org/packages?name={name},name,
+deb,withQualifier,{qualifiers.repository_url},qualifiers.repository_url,
+deb,fallback,https://packages.debian.org/{qualifiers.distro}/{name},name,qualifiers.distro defaults to 'sid' if absent
+rpm,withQualifier,{qualifiers.repository_url},qualifiers.repository_url,
+rpm,fallback,https://packages.fedoraproject.org/pkgs/{name}/,name,
+oci,withQualifier,{qualifiers.repository_url},qualifiers.repository_url,No fallback URL available
+yocto,default,{qualifiers.repository_url},qualifiers.repository_url,Falls back to qualifiers.vcs_url
+generic,default,{qualifiers.download_url},qualifiers.download_url,
+mlflow,default,{qualifiers.repository_url},qualifiers.repository_url,Falls back to qualifiers.vcs_url
+otp,default,{qualifiers.repository_url},qualifiers.repository_url,Falls back to qualifiers.vcs_url
+qpkg,default,{qualifiers.repository_url},qualifiers.repository_url,Falls back to qualifiers.vcs_url
+swid,default,{qualifiers.repository_url},qualifiers.repository_url,Falls back to qualifiers.vcs_url

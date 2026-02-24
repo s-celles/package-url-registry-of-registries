@@ -1,0 +1,39 @@
+type,registryName,baseUrl,hasRegistry,requiresQualifier,category
+bazel,Bazel Central Registry,https://registry.bazel.build,True,False,central
+bitbucket,Bitbucket,https://bitbucket.org,True,False,central
+bitnami,Bitnami,https://bitnami.com,True,False,central
+cargo,crates.io,https://crates.io,True,False,central
+cocoapods,CocoaPods,https://cocoapods.org,True,False,central
+composer,Packagist,https://packagist.org,True,False,central
+conan,Conan Center,https://conan.io/center,True,False,central
+conda,Anaconda,https://anaconda.org,True,False,central
+cpan,MetaCPAN,https://metacpan.org,True,False,central
+cran,CRAN,https://cran.r-project.org,True,False,central
+docker,Docker Hub,https://hub.docker.com,True,False,central
+gem,RubyGems,https://rubygems.org,True,False,central
+github,GitHub,https://github.com,True,False,central
+golang,Go Packages,https://pkg.go.dev,True,False,central
+hackage,Hackage,https://hackage.haskell.org,True,False,central
+hex,Hex.pm,https://hex.pm,True,False,central
+huggingface,Hugging Face,https://huggingface.co,True,False,central
+julia,JuliaHub,https://juliahub.com,True,False,central
+luarocks,LuaRocks,https://luarocks.org,True,False,central
+maven,Maven Central,https://central.sonatype.com,True,False,central
+npm,npm,https://www.npmjs.com,True,False,central
+nuget,NuGet,https://www.nuget.org,True,False,central
+opam,OPAM,https://opam.ocaml.org,True,False,central
+pub,pub.dev,https://pub.dev,True,False,central
+pypi,PyPI,https://pypi.org,True,False,central
+swift,Swift Package Index,https://swiftpackageindex.com,True,False,central
+vscode-extension,VS Marketplace,https://marketplace.visualstudio.com,True,False,central
+alpm,Arch Linux,,True,True,qualifier-based
+apk,Alpine Linux,,True,True,qualifier-based
+deb,Debian/Ubuntu,,True,True,qualifier-based
+oci,OCI Registry,,True,True,qualifier-based
+rpm,RPM,,True,True,qualifier-based
+yocto,Yocto,,False,True,qualifier-based
+generic,Generic,,False,False,no-registry
+mlflow,MLflow,,False,False,no-registry
+otp,Erlang/OTP,,False,False,no-registry
+qpkg,QNX,,False,False,no-registry
+swid,SWID,,False,False,no-registry

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/datapackage.json",
+  "name": "purl-registry-mappings",
+  "id": "urn:datapackage:purl-registry-mappings:1.0.0",
+  "title": "PURL Registry Mappings",
+  "description": "Registry mappings and URL patterns for all 38 official Package URL (PURL) types as defined by the PURL specification. Includes registry metadata and URL generation templates with placeholder syntax.",
+  "version": "1.0.0",
+  "created": "2026-02-24T00:00:00Z",
+  "licenses": [
+    {
+      "name": "CC0-1.0",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "title": "CC0 1.0 Universal Public Domain Dedication"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Package URL (PURL) Specification",
+      "path": "https://github.com/package-url/purl-spec"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Sébastien Celles",
+      "roles": [
+        "author"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "name": "registries",
+      "type": "table",
+      "title": "PURL Registry Definitions",
+      "description": "Base registry information for each of the 38 official PURL types.",
+      "schema": {
+        "primaryKey": [
+          "type"
+        ],
+        "fields": [
+          {
+            "name": "type",
+            "type": "string",
+            "description": "PURL type identifier",
+            "constraints": {
+              "required": true,
+              "unique": true
+            }
+          },
+          {
+            "name": "registryName",
+            "type": "string",
+            "description": "Human-readable name of the registry",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "baseUrl",
+            "type": "string",
+            "description": "Base URL of the registry website"
+          },
+          {
+            "name": "hasRegistry",
+            "type": "boolean",
+            "description": "Whether a central browsable registry exists",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "requiresQualifier",
+            "type": "boolean",
+            "description": "Whether PURL qualifiers are needed to resolve a URL"
+          },
+          {
+            "name": "category",
+            "type": "string",
+            "description": "Classification of the registry type",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "central",
+                "qualifier-based",
+                "no-registry"
+              ]
+            }
+          }
+        ],
+        "missingValues": [
+          "",
+          "null"
+        ]
+      },
+      "path": "registries.csv"
+    },
+    {
+      "name": "url-patterns",
+      "type": "table",
+      "title": "PURL URL Generation Patterns",
+      "description": "URL templates for generating registry links from parsed PURL components.",
+      "schema": {
+        "primaryKey": [
+          "type",
+          "pattern"
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "type"
+            ],
+            "reference": {
+              "resource": "registries",
+              "fields": [
+                "type"
+              ]
+            }
+          }
+        ],
+        "fields": [
+          {
+            "name": "type",
+            "type": "string",
+            "description": "PURL type identifier",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "pattern",
+            "type": "string",
+            "description": "Pattern variant key",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "default",
+                "withVersion",
+                "withNamespace",
+                "withNamespaceAndVersion",
+                "official",
+                "fallback",
+                "withQualifier"
+              ]
+            }
+          },
+          {
+            "name": "urlTemplate",
+            "type": "string",
+            "description": "URL template with placeholders: {name}, {namespace}, {version}, {qualifiers.*}",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "requiredFields",
+            "type": "string",
+            "description": "Comma-separated list of PURL fields required for this pattern",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "note",
+            "type": "string",
+            "description": "Implementation notes"
+          }
+        ],
+        "missingValues": [
+          "",
+          "null"
+        ]
+      },
+      "path": "url-patterns.csv"
+    }
+  ]
+}
