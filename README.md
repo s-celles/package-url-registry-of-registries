@@ -1,5 +1,7 @@
 # PURL Registry Mappings
 
+[![Validate Datapackage](https://github.com/s-celles/package-url-registry-of-registries/actions/workflows/validate.yml/badge.svg)](https://github.com/s-celles/package-url-registry-of-registries/actions/workflows/validate.yml)
+
 Registry mappings and URL patterns for all 38 official [Package URL (PURL)](https://github.com/package-url/purl-spec) types.
 
 This dataset is published as a [Frictionless Data](https://frictionlessdata.io/) datapackage.
